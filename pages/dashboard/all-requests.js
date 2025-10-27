@@ -49,7 +49,6 @@ export default function AllRequests() {
     fetchRequests();
   }, []);
 
-  // Helper: ensure chat exists
   const ensureChatExists = async (request) => {
     const chatsRef = collection(db, "chats");
     const chatQuery = query(chatsRef, where("requestId", "==", request.id));
@@ -63,6 +62,9 @@ export default function AllRequests() {
         createdAt: new Date(),
       });
     }
+    alert(
+      "A new chat has been created! Please check your chats section to communicate with the other person."
+    );
   };
 
   // Volunteer for a request
